@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evelynox - Links</title>
+    
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://evelynox.github.io/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: linear-gradient(135deg, #1a0a1e 0%, #2d1b3d 30%, #3d2550 50%, #2d1b3d 70%, #1a0a1e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 105, 180, 0.12) 0%, transparent 40%),
+                        radial-gradient(circle at 70% 50%, rgba(91, 206, 250, 0.08) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(255, 105, 180, 0.03) 50%, transparent 100%),
+                linear-gradient(0deg, transparent 0%, rgba(91, 206, 250, 0.02) 50%, transparent 100%);
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .bg-code {
+            position: fixed;
+            font-size: 14px;
+            color: rgba(255, 105, 180, 0.12);
+            pointer-events: none;
+            font-weight: 300;
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        .bg-code:nth-child(1) { top: 15%; left: 10%; animation: float-code 25s ease-in-out infinite; }
+        .bg-code:nth-child(2) { top: 60%; right: 8%; animation: float-code 30s ease-in-out infinite reverse; color: rgba(91, 206, 250, 0.12); }
+        .bg-code:nth-child(3) { bottom: 20%; left: 15%; animation: float-code 20s ease-in-out infinite; }
+        .bg-code:nth-child(4) { top: 40%; left: 5%; animation: float-code 28s ease-in-out infinite reverse; color: rgba(245, 169, 184, 0.12); }
+        .bg-code:nth-child(5) { top: 25%; right: 15%; animation: float-code 22s ease-in-out infinite; color: rgba(91, 206, 250, 0.12); }
+        .bg-code:nth-child(6) { bottom: 35%; right: 20%; animation: float-code 27s ease-in-out infinite reverse; }
+
+        @keyframes float-code {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.12; }
+            50% { transform: translate(30px, -30px) rotate(3deg); opacity: 0.18; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.15) rotate(8deg); }
+        }
+
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: particle-float 10s ease-in-out infinite;
+        }
+
+        .particle:nth-child(odd) {
+            background: rgba(255, 105, 180, 0.4);
+        }
+
+        .particle:nth-child(even) {
+            background: rgba(91, 206, 250, 0.4);
+        }
+
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        .container {
+            background: rgba(30, 20, 40, 0.85);
+            border: 2px solid rgba(255, 105, 180, 0.4);
+            border-radius: 30px;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 1100px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(255, 105, 180, 0.15),
+                0 0 20px rgba(91, 206, 250, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #ff69b4, #5bcefa, #f5a9b8) 1;
+            margin-bottom: 20px;
+            box-shadow: 
+                0 8px 25px rgba(255, 105, 180, 0.4),
+                0 4px 15px rgba(91, 206, 250, 0.3);
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        h1 {
+            font-size: 42px;
+            background: linear-gradient(135deg, #ff69b4, #5bcefa, #f5a9b8, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 8px rgba(255, 105, 180, 0.4));
+        }
+
+        .pronouns {
+            color: rgba(255, 182, 193, 0.7);
+            font-size: 13px;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: rgba(255, 182, 193, 0.8);
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        .motto {
+            color: rgba(91, 206, 250, 0.7);
+            font-size: 12px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Terminal Section */
+        .terminal {
+            background: rgba(20, 15, 30, 0.9);
+            border: 2px solid rgba(91, 206, 250, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-size: 13px;
+            box-shadow: 
+                0 8px 25px rgba(91, 206, 250, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(91, 206, 250, 0.2);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-close { background: #ff5f56; }
+        .dot-minimize { background: #ffbd2e; }
+        .dot-maximize { background: #27c93f; }
+
+        .terminal-title {
+            color: rgba(91, 206, 250, 0.6);
+            font-size: 12px;
+            margin-left: auto;
+        }
+
+        .terminal-content {
+            color: #5bcefa;
+            line-height: 1.8;
+        }
+
+        .terminal-prompt {
+            color: #ff69b4;
+            margin-right: 8px;
+        }
+
+        .terminal-command {
+            color: #f5a9b8;
+        }
+
+        .terminal-output {
+            color: rgba(255, 255, 255, 0.7);
+            margin-left: 20px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background: #5bcefa;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            gap: 15px;
+            grid-column: 1 / -1;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 105, 180, 0.4), transparent);
+        }
+
+        .section-label {
+            color: rgba(255, 182, 193, 0.5);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background: rgba(50, 35, 60, 0.7);
+            border: 1.5px solid rgba(255, 105, 180, 0.3);
+            border-radius: 15px;
+            color: #ffb6c1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(91, 206, 250, 0.2));
+            border: 2px solid rgba(255, 105, 180, 0.5);
+            padding: 18px 25px;
+            font-size: 16px;
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 105, 180, 0.15), transparent);
+            transition: left 0.5s;
+        }
+
+        .link-item:hover::before {
+            left: 100%;
+        }
+
+        .link-item:hover {
+            background: rgba(60, 40, 70, 0.9);
+            border-color: rgba(255, 105, 180, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 25px rgba(255, 105, 180, 0.25),
+                0 4px 15px rgba(91, 206, 250, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .link-item.featured:hover {
+            box-shadow: 
+                0 12px 35px rgba(255, 105, 180, 0.35),
+                0 6px 20px rgba(91, 206, 250, 0.25);
+        }
+
+        .link-item:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .link-item img {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s;
+        }
+
+        .link-item.featured img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .link-item:hover img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .link-text {
+            flex: 1;
+            font-weight: 400;
+        }
+
+        /* Skills & Specs Section */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .specs-section {
+            background: rgba(40, 30, 50, 0.6);
+            border: 1.5px solid rgba(255, 105, 180, 0.25);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .specs-section:hover {
+            border-color: rgba(91, 206, 250, 0.4);
+            box-shadow: 0 4px 15px rgba(91, 206, 250, 0.1);
+        }
+
+        .specs-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ff69b4;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .specs-title::before {
+            content: '▸';
+            font-size: 16px;
+            color: #5bcefa;
+        }
+
+        /* Skills with hover details */
+        .skill-item {
+            background: rgba(50, 35, 60, 0.5);
+            border: 1px solid rgba(91, 206, 250, 0.2);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-item:hover {
+            background: rgba(60, 40, 70, 0.7);
+            border-color: rgba(91, 206, 250, 0.5);
+            transform: translateX(5px);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .skill-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5bcefa;
+        }
+
+        .skill-level {
+            font-size: 11px;
+            color: rgba(255, 182, 193, 0.6);
+        }
+
+        .skill-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 0;
+        }
+
+        .skill-item:hover .skill-details {
+            max-height: 200px;
+            margin-top: 10px;
+        }
+
+        .skill-description {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
+        }
+
+        .skill-tag {
+            font-size: 9px;
+            padding: 3px 8px;
+            background: rgba(255, 105, 180, 0.2);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            border-radius: 5px;
+            color: #f5a9b8;
+        }
+
+        .specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .spec-item {
+            font-size: 11px;
+            color: rgba(255, 182, 193, 0.7);
+            display: flex;
+            line-height: 1.5;
+        }
+
+        .spec-label {
+            color: rgba(238, 130, 238, 0.6);
+            min-width: 90px;
+            flex-shrink: 0;
+        }
+
+        .spec-value {
+            color: rgba(255, 182, 193, 0.8);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 12px;
+            color: rgba(255, 182, 193, 0.5);
+            font-weight: 300;
+            line-height: 1.8;
+            grid-column: 1 / -1;
+        }
+
+        .footer-made {
+            margin-bottom: 8px;
+        }
+
+        .footer-version {
+            font-size: 11px;
+            color: rgba(255, 182, 193, 0.4);
+        }
+
+        .heart {
+            color: #ff69b4;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.1); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        .easter-egg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(30, 20, 40, 0.98);
+            border: 2px solid rgba(255, 105, 180, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            color: #ffb6c1;
+            font-size: 14px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            display: none;
+            z-index: 1000;
+            animation: easterEggAppear 0.5s ease-out;
+        }
+
+        .easter-egg.active {
+            display: block;
+        }
+
+        @keyframes easterEggAppear {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .easter-egg-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ff69b4, #5bcefa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .decorative-circle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.04;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #ff69b4, transparent);
+            top: -150px;
+            right: -150px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #5bcefa, transparent);
+            bottom: -100px;
+            left: -100px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        .circle-3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #f5a9b8, transparent);
+            top: 50%;
+            left: -100px;
+            animation: float 18s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(40px, -40px); }
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-row: 2;
+            }
+
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .link-item {
+                font-size: 13px;
+                padding: 14px 18px;
+            }
+
+            .bg-code {
+                display: none;
+            }
+
+            .terminal {
+                font-size: 11px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-code">// sudo pacman -Syu</div>
+    <div class="bg-code">int main() { return 0; }</div>
+    <div class="bg-code">std::vector&lt;dream&gt; dreams;</div>
+    <div class="bg-code">// btw i use arch</div>
+    <div class="bg-code">typedef struct { ... } Magic;</div>
+    <div class="bg-code">cmake --build . --config Release</div>
+
+    <div class="decorative-circle circle-1"></div>
+    <div class="decorative-circle circle-2"></div>
+    <div class="decorative-circle circle-3"></div>
+
+    <div class="container" id="container">
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-img">
+                    <img src="https://evelynox.github.io/images/favicon.ico" alt="Evelynox">
+                </div>
+                <h1>Evelynox</h1>
+                <div class="pronouns">she/her</div>
+                <div class="subtitle">// Software Developer & C++ Enthusiast</div>
+                <div class="motto">"Compiling dreams into reality"</div>
+            </div>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot dot-close"></div>
+                <div class="terminal-dot dot-minimize"></div>
+                <div class="terminal-dot dot-maximize"></div>
+                <div class="terminal-title">evelyn@arch ~ $</div>
+            </div>
+            <div class="terminal-content">
+                <div><span class="terminal-prompt">evelyn@arch</span><span class="terminal-command">$ whoami</span></div>
+                <div class="terminal-output">Software Developer | Tech Enthusiast | Linux User</div>
+                <div style="margin-top: 8px;"><span class="terminal-prompt">evelyn@arch</span><span class="terminal-command">$ cat /etc/os-release | grep PRETTY_NAME</span></div>
+                <div class="terminal-output">PRETTY_NAME="Arch Linux"</div>
+                <div style="margin-top: 8px;"><span class="terminal-prompt">evelyn@arch</span><span class="terminal-command">$ echo $SKILLS</span></div>
+                <div class="terminal-output">C++ | x64 Assembly | Linux | Docker | Git<span class="cursor"></span></div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="links-section">
+                <div class="links-grid">
+                    <a class="link-item featured" target="_blank" href="https://evelynox.github.io/Resonanz">
+                        <img src="images/resonanz.ico" alt="Story">
+                        <span class="link-text">"Resonanze" - My Story</span>
+                    </a>
+
+                    <div class="section-divider">
+                        <div class="section-label">Social</div>
+                    </div>
+
+                    <a class="link-item" target="_blank" href="https://discord.gg/QUvZmwNea3">
+                        <img src="images/discord.ico" alt="Discord">
+                        <span class="link-text">Discord</span>
+                    </a>
+                    <a class="link-item" target="_blank" href="https://www.youtube.com/@Evelynox49">
+                        <img src="images/youtube.ico" alt="YouTube">
+                        <span class="link-text">YouTube</span>
+                    </a>
+                    <a class="link-item" target="_blank" href="https://www.instagram.com/evelynox49/">
+                        <img src="images/instagram.ico" alt="Instagram">
+                        <span class="link-text">Instagram</span>
+                    </a>
+
+                    <div class="section-divider">
+                        <div class="section-label">Dev & Music</div>
+                    </div>
+
+                    <a class="link-item" target="_blank" href="https://github.com/Evelynox/">
+                        <img src="images/github.ico" alt="GitHub">
+                        <span class="link-text">GitHub</span>
+                    </a>
+                    <a class="link-item" target="_blank" href="https://open.spotify.com/user/dsvidnator_49?si=f964a6fc46d84453">
+                        <img src="images/spotify.ico" alt="Spotify">
+                        <span class="link-text">Spotify</span>
+                    </a>
+
+                    <div class="section-divider">
+                        <div class="section-label">Gaming</div>
+                    </div>
+
+                    <a class="link-item" target="_blank" href="https://steamcommunity.com/profiles/76561198315816333/">
+                        <img src="images/steam.ico" alt="Steam">
+                        <span class="link-text">Steam</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="specs-section">
+                    <div class="specs-title">Technical Skills</div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">C++ Development</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-description">
+                                Proficient in modern C++ with experience in external libraries and proper code architecture
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">SQLite3</span>
+                                <span class="skill-tag">SDL</span>
+                                <span class="skill-tag">Best Practices</span>
+                                <span class="skill-tag">Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">x64 Assembly</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-description">
+                                Low-level programming with NASM on Linux systems
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">NASM</span>
+                                <span class="skill-tag">Linux x64</span>
+                                <span class="skill-tag">System Calls</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Linux Administration</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-description">
+                                Deep expertise in Arch Linux, server setup, and containerization
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Arch Linux</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Moodle Server</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Version Control</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-description">
+                                Self-hosted Git infrastructure and workflow management
